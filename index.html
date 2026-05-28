@@ -170,64 +170,64 @@
     <div id="cursor"></div>
     <div id="cursor-follower"></div>
 
-    <nav class="fixed top-0 left-0 w-full px-4 md:px-8 py-6 flex justify-between items-center z-50 pointer-events-none">
-        <div class="font-black text-2xl tracking-tighter pointer-events-auto hover-trigger mix-blend-difference text-sticker">
+    <nav class="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex justify-between items-center z-50 pointer-events-none transition-all duration-300">
+        <div class="font-black text-xl sm:text-2xl tracking-tighter pointer-events-auto hover-trigger mix-blend-difference text-sticker">
             QuickResets<span class="text-crimson">.</span>
         </div>
         <div class="hidden md:flex gap-4 pointer-events-auto">
-            <button class="bg-sticker text-ink font-bold tracking-widest text-[10px] uppercase px-6 py-2.5 hover-trigger border-2 border-ink hover:bg-ink hover:text-sticker transition-colors">Donate $1</button>
+            <button class="bg-sticker text-ink font-bold tracking-widest text-[10px] uppercase px-5 py-2 hover-trigger border-2 border-ink hover:bg-ink hover:text-sticker transition-colors">Donate $1</button>
         </div>
     </nav>
 
-    <main id="scroll-container" class="relative w-full z-10 pt-24 pb-24 px-4 md:px-8 flex flex-col gap-8 md:gap-16">
+    <main id="scroll-container" class="relative w-full z-10 pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 lg:gap-12">
         
         <!-- Hero Sticker -->
-        <section class="w-full min-h-[85vh] bg-sticker bg-paper-texture rounded-[2rem] border-2 border-ink shadow-brutal-lg flex flex-col justify-center items-center text-center p-6 md:p-12 relative overflow-hidden">
+        <section class="w-full min-h-[80vh] lg:min-h-[85vh] bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg flex flex-col justify-center items-center text-center p-6 sm:p-8 lg:p-12 relative overflow-hidden">
             
-            <div class="max-w-5xl relative z-10 w-full">
-                <div class="font-bold text-ink tracking-widest text-[10px] md:text-xs mb-8 reveal-up uppercase border border-ink inline-block px-4 py-2 rounded-full">Dignity First</div>
+            <div class="max-w-4xl lg:max-w-5xl relative z-10 w-full">
+                <div class="font-bold text-ink tracking-widest text-[9px] sm:text-[10px] md:text-xs mb-6 sm:mb-8 reveal-up uppercase border border-ink inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">Dignity First</div>
                 
-                <h1 class="text-[14vw] md:text-[10vw] leading-[0.85] font-black tracking-tighter mb-8 text-ink uppercase">
+                <h1 class="text-[12vw] sm:text-[10vw] lg:text-[8vw] xl:text-[6.5vw] leading-[0.85] font-black tracking-tighter mb-6 sm:mb-8 text-ink uppercase">
                     <div class="kinetic-text">HELP WITHOUT</div>
                     <div class="kinetic-text">HUMILIATION<span class="text-crimson">.</span></div>
                 </h1>
                 
-                <h2 class="text-2xl md:text-5xl font-black tracking-tighter text-ink mb-12 reveal-up">
+                <h2 class="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tighter text-ink mb-8 sm:mb-12 reveal-up">
                     SCAN. $1. RESET.
                 </h2>
 
-                <p class="text-lg md:text-2xl text-muted font-medium max-w-2xl mx-auto reveal-up leading-snug">
-                    A QR code. A dollar. A real person gets help. <br>
+                <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted font-medium max-w-2xl mx-auto reveal-up leading-relaxed sm:leading-snug">
+                    A QR code. A dollar. A real person gets help. <br class="hidden sm:block">
                     No public begging. No shame. No judgment.
                 </p>
                 
-                <div class="mt-16 flex flex-col sm:flex-row justify-center items-center gap-4 reveal-up">
-                    <button class="brutalist-btn hover-trigger w-full sm:w-auto">Scan & Give</button>
-                    <button class="brutalist-btn-outline hover-trigger w-full sm:w-auto">Request Help</button>
+                <div class="mt-10 sm:mt-16 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 reveal-up">
+                    <button class="brutalist-btn hover-trigger w-full sm:w-auto py-3 sm:py-4 px-6 sm:px-8">Scan & Give</button>
+                    <button class="brutalist-btn-outline hover-trigger w-full sm:w-auto py-3 sm:py-4 px-6 sm:px-8">Request Help</button>
                 </div>
             </div>
 
             <!-- Decorative corner elements to reinforce physical framing -->
-            <div class="absolute top-8 left-8 w-4 h-4 border-t-2 border-l-2 border-ink"></div>
-            <div class="absolute top-8 right-8 w-4 h-4 border-t-2 border-r-2 border-ink"></div>
-            <div class="absolute bottom-8 left-8 w-4 h-4 border-b-2 border-l-2 border-ink"></div>
-            <div class="absolute bottom-8 right-8 w-4 h-4 border-b-2 border-r-2 border-ink"></div>
+            <div class="absolute top-4 sm:top-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
+            <div class="absolute top-4 sm:top-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
+            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-l-2 border-ink"></div>
+            <div class="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-r-2 border-ink"></div>
         </section>
 
         <!-- The Gap Section -->
-        <section class="w-full bg-sticker bg-paper-texture rounded-[2rem] border-2 border-ink shadow-brutal-lg p-8 md:p-20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-                <div class="lg:col-span-5 lg:sticky lg:top-32">
-                    <h2 class="text-[10vw] md:text-6xl font-black tracking-tighter mb-8 kinetic-text leading-none uppercase">THE GAP.</h2>
-                    <div class="w-full h-1 bg-ink mb-8"></div>
-                    <p class="text-ink font-bold text-xl md:text-2xl leading-snug mb-6 reveal-up">
+        <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                <div class="lg:col-span-5 lg:sticky lg:top-24 xl:top-32">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter mb-6 sm:mb-8 kinetic-text leading-none uppercase">THE GAP.</h2>
+                    <div class="w-full h-1 bg-ink mb-6 sm:mb-8"></div>
+                    <p class="text-ink font-bold text-lg sm:text-xl lg:text-2xl leading-snug mb-6 reveal-up">
                         A lot of people do not fit neatly into existing help systems. Some have not lost everything yet, but they are close. Some already have lost almost everything.
                     </p>
                 </div>
                 
-                <div class="lg:col-span-7 flex flex-col gap-8 text-muted text-lg md:text-xl font-medium leading-relaxed">
+                <div class="lg:col-span-7 flex flex-col gap-6 sm:gap-8 text-muted text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
                     <p class="reveal-up">
-                        The space between <span class="text-ink font-black bg-concrete/30 px-2 py-0.5">"I'm okay"</span> and <span class="text-ink font-black bg-concrete/30 px-2 py-0.5">"I've lost everything."</span> 
+                        The space between <span class="text-ink font-black bg-concrete/30 px-2 py-0.5 rounded-sm">"I'm okay"</span> and <span class="text-ink font-black bg-concrete/30 px-2 py-0.5 rounded-sm">"I've lost everything."</span> 
                         The space where a small amount of help stops a much bigger fall. The space where dignity matters as much as the help itself.
                     </p>
                     <p class="reveal-up">
@@ -241,71 +241,71 @@
         </section>
 
         <!-- What People Request -->
-        <section class="w-full bg-ink text-sticker rounded-[2rem] shadow-brutal-lg p-8 md:p-20 relative overflow-hidden">
+        <section class="w-full bg-ink text-sticker rounded-2xl md:rounded-[2rem] shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 relative overflow-hidden">
             <!-- Subtle texture over dark background -->
             <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')] pointer-events-none"></div>
             
             <div class="relative z-10">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-muted/30 pb-8 reveal-up">
-                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase">What People Request.</h2>
-                    <span class="font-bold text-crimson text-[10px] tracking-widest mt-4 md:mt-0 uppercase">Human-Scale Needs</span>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 border-b border-muted/30 pb-6 sm:pb-8 reveal-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter uppercase max-w-2xl">What People Request.</h2>
+                    <span class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 md:mt-0 uppercase">Human-Scale Needs</span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
-                        <div class="w-8 h-2 bg-crimson mb-6"></div>
-                        <h3 class="text-xl font-black mb-3">A Private Ride</h3>
-                        <p class="text-sm text-sticker/60 font-medium">Transportation to stay employed or access necessary care without relying on unpredictable transit.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                        <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-crimson mb-4 sm:mb-6"></div>
+                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">A Private Ride</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">Transportation to stay employed or access necessary care without relying on unpredictable transit.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
-                        <div class="w-8 h-2 bg-sticker mb-6"></div>
-                        <h3 class="text-xl font-black mb-3">Safe Shelter</h3>
-                        <p class="text-sm text-sticker/60 font-medium">A night off the street. Temporary housing to secure a baseline physical reset.</p>
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                        <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
+                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Safe Shelter</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">A night off the street. Temporary housing to secure a baseline physical reset.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
-                        <div class="w-8 h-2 bg-sticker mb-6"></div>
-                        <h3 class="text-xl font-black mb-3">A Rent Gap</h3>
-                        <p class="text-sm text-sticker/60 font-medium">Filling the critical financial margin before cascading fees and eviction protocols trigger.</p>
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                        <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
+                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">A Rent Gap</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">Filling the critical financial margin before cascading fees and eviction protocols trigger.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
-                        <div class="w-8 h-2 bg-concrete mb-6"></div>
-                        <h3 class="text-xl font-black mb-3">Agency Routing</h3>
-                        <p class="text-sm text-sticker/60 font-medium">A connection to the right agency and a tailored next step, bypassing the standard bureaucratic maze.</p>
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                        <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-concrete mb-4 sm:mb-6"></div>
+                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Agency Routing</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">A connection to the right agency and a tailored next step, bypassing the standard bureaucratic maze.</p>
                     </div>
                 </div>
 
-                <div class="mt-8 flex flex-wrap gap-3 reveal-up">
-                    <span class="px-4 py-2 bg-sticker text-ink font-bold text-xs uppercase rounded-sm">Food</span>
-                    <span class="px-4 py-2 bg-sticker text-ink font-bold text-xs uppercase rounded-sm">A Phone</span>
-                    <span class="px-4 py-2 bg-sticker text-ink font-bold text-xs uppercase rounded-sm">Medical Trips</span>
-                    <span class="px-4 py-2 bg-sticker text-ink font-bold text-xs uppercase rounded-sm">A Bill Covered</span>
+                <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 reveal-up">
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">Food</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">A Phone</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">Medical Trips</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">A Bill Covered</span>
                 </div>
             </div>
         </section>
 
         <!-- The Dignity Rule -->
-        <section class="w-full bg-sticker bg-paper-texture rounded-[2rem] border-2 border-ink shadow-brutal-lg p-8 md:p-20 text-center flex flex-col items-center">
-            <div class="font-bold text-crimson tracking-widest text-[10px] mb-8 reveal-up uppercase border border-crimson inline-block px-4 py-2 rounded-full">Directive 01</div>
+        <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 text-center flex flex-col items-center">
+            <div class="font-bold text-crimson tracking-widest text-[9px] sm:text-[10px] mb-6 sm:mb-8 reveal-up uppercase border border-crimson inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">Directive 01</div>
             
-            <h2 class="text-3xl md:text-5xl lg:text-[5vw] font-black tracking-tighter leading-[0.9] text-ink uppercase max-w-5xl">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4vw] font-black tracking-tighter leading-[1.1] sm:leading-[0.9] text-ink uppercase max-w-4xl lg:max-w-5xl">
                 <div class="kinetic-text">A person does not become</div>
                 <div class="kinetic-text">less worthy of help because</div>
                 <div class="kinetic-text text-muted">they are poor, sick, ashamed,</div>
                 <div class="kinetic-text text-muted">unhoused, or overwhelmed.</div>
             </h2>
             
-            <div class="w-1 h-16 bg-ink mx-auto my-12 reveal-up"></div>
+            <div class="w-1 h-12 sm:h-16 bg-ink mx-auto my-8 sm:my-12 reveal-up"></div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left max-w-5xl w-full">
-                <div class="reveal-up border-l-4 border-ink pl-6">
-                    <h3 class="text-2xl font-black text-ink mb-4 uppercase">The Bigger Mission</h3>
-                    <p class="text-muted font-medium leading-relaxed">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left max-w-4xl lg:max-w-5xl w-full">
+                <div class="reveal-up border-l-4 border-ink pl-5 sm:pl-6">
+                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4 uppercase">The Bigger Mission</h3>
+                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">
                         QuickResets is intended to start with public QR codes and one-dollar donations, but the mission is bigger than a payment page. We are seeking people with lived experience who want to help grow this into a direct-aid and support network that can help people before, during, and after collapse — including temporary housing, privacy, advocates, and practical paths back toward safety.
                     </p>
                 </div>
-                <div class="reveal-up border-l-4 border-crimson pl-6">
-                    <h3 class="text-2xl font-black text-ink mb-4 uppercase">Humanity Preserved</h3>
-                    <p class="text-muted font-medium leading-relaxed">
+                <div class="reveal-up border-l-4 border-crimson pl-5 sm:pl-6">
+                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4 uppercase">Humanity Preserved</h3>
+                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">
                         Everyone needs the basics. Food. Safety. Shelter. Privacy. Transportation. Human contact. A path forward. QuickResets is not about deciding who deserves humanity. It aims to create a practical way for people to receive specific help while preserving autonomy, dignity, and privacy.
                     </p>
                 </div>
@@ -313,111 +313,111 @@
         </section>
 
         <!-- How it works -->
-        <section class="w-full bg-sticker bg-paper-texture rounded-[2rem] border-2 border-ink shadow-brutal-lg p-8 md:p-20">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-ink pb-8 reveal-up">
-                <h2 class="text-5xl md:text-[6vw] leading-none font-black tracking-tighter uppercase">Protocol.</h2>
+        <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 border-b border-ink pb-6 sm:pb-8 reveal-up">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-none font-black tracking-tighter uppercase">Protocol.</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
-                <div class="brutalist-card p-8 md:p-10 reveal-up">
-                    <div class="text-5xl font-black text-ink mb-6">01</div>
-                    <h3 class="text-2xl font-black mb-4 uppercase">Deploy</h3>
-                    <p class="text-muted font-medium leading-relaxed">A QR code is placed in a public or partner location. Menus, counters, community boards, neighborhoods.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+                <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up">
+                    <div class="text-4xl sm:text-5xl font-black text-ink mb-4 sm:mb-6">01</div>
+                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Deploy</h3>
+                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">A QR code is placed in a public or partner location. Menus, counters, community boards, neighborhoods.</p>
                 </div>
                 
-                <div class="brutalist-card p-8 md:p-10 reveal-up bg-ink text-sticker">
-                    <div class="text-5xl font-black text-crimson mb-6">02</div>
-                    <h3 class="text-2xl font-black mb-4 uppercase">Scan & Route</h3>
-                    <p class="text-sticker/70 font-medium leading-relaxed">Someone scans it. They give one dollar, or they request help. Donations are intended to be routed toward specific verified human-scale needs.</p>
+                <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up bg-ink text-sticker">
+                    <div class="text-4xl sm:text-5xl font-black text-crimson mb-4 sm:mb-6">02</div>
+                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Scan & Route</h3>
+                    <p class="text-sticker/70 font-medium text-sm sm:text-base leading-relaxed">Someone scans it. They give one dollar, or they request help. Donations are intended to be routed toward specific verified human-scale needs.</p>
                 </div>
                 
-                <div class="brutalist-card p-8 md:p-10 reveal-up">
-                    <div class="text-5xl font-black text-ink mb-6">03</div>
-                    <h3 class="text-2xl font-black mb-4 uppercase">Review & Reset</h3>
-                    <p class="text-muted font-medium leading-relaxed">Requests are intended to be reviewed to protect the fund without turning crisis into interrogation. The goal is always to move the person one step closer to safety.</p>
+                <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up">
+                    <div class="text-4xl sm:text-5xl font-black text-ink mb-4 sm:mb-6">03</div>
+                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Review & Reset</h3>
+                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">Requests are intended to be reviewed to protect the fund without turning crisis into interrogation. The goal is always to move the person one step closer to safety.</p>
                 </div>
             </div>
         </section>
 
         <!-- Audience & Principle -->
-        <section class="w-full bg-concrete rounded-[2rem] border-2 border-ink shadow-brutal-lg overflow-hidden flex flex-col">
-            <div class="bg-crimson p-10 md:p-16 text-white border-b-2 border-ink reveal-up">
-                <h3 class="text-4xl md:text-5xl font-black mb-6 uppercase">The One-Dollar Principle.</h3>
-                <div class="grid md:grid-cols-2 gap-8 lg:gap-16 text-lg font-medium">
+        <section class="w-full bg-concrete rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg overflow-hidden flex flex-col">
+            <div class="bg-crimson p-6 sm:p-10 lg:p-16 text-white border-b-2 border-ink reveal-up">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-5 sm:mb-6 uppercase">The One-Dollar Principle.</h3>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 text-base sm:text-lg font-medium">
                     <p>QuickResets is being built around one dollar because one dollar matters. One dollar is small enough that almost anyone can help. One dollar should never be treated as embarrassing, or feel like "not enough."</p>
-                    <p>One dollar, repeated across a city, can become food, rides, phones, rent gaps, temporary rooms, and real chances for people who would otherwise keep falling quietly. The ask stays simple: <strong class="text-ink bg-sticker px-2 py-1 ml-1 rounded-sm uppercase">Scan. Give $1. Help someone reset.</strong></p>
+                    <p>One dollar, repeated across a city, can become food, rides, phones, rent gaps, temporary rooms, and real chances for people who would otherwise keep falling quietly. The ask stays simple: <strong class="text-ink bg-sticker px-2 py-1 ml-1 rounded-sm uppercase text-sm sm:text-base leading-loose">Scan. Give $1. Help someone reset.</strong></p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 bg-sticker bg-paper-texture">
-                <div class="p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-ink text-[10px] tracking-widest uppercase mb-4">For Donors</h4>
-                    <h3 class="text-2xl font-black text-ink mb-4">Direct Impact</h3>
-                    <p class="text-muted font-medium text-sm leading-relaxed">Intended to be a simple way to help without needing to know someone personally, judge their whole life, or donate into a vague system. You will be helping with specific needs. You start by helping one person.</p>
+                <div class="p-6 sm:p-8 lg:p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
+                    <h4 class="font-bold text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For Donors</h4>
+                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">Direct Impact</h3>
+                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">Intended to be a simple way to help without needing to know someone personally, judge their whole life, or donate into a vague system. You will be helping with specific needs. You start by helping one person.</p>
                 </div>
-                <div class="p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-crimson text-[10px] tracking-widest uppercase mb-4">For People Requesting</h4>
-                    <h3 class="text-2xl font-black text-ink mb-4">Reducing Shame</h3>
-                    <p class="text-muted font-medium text-sm leading-relaxed">You should not have to publicly expose your life to ask for a ride. You should not have to perform collapse to ask for food. The platform is intended to ask for enough info to route help. It aims to not judge you.</p>
+                <div class="p-6 sm:p-8 lg:p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
+                    <h4 class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For People Requesting</h4>
+                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">Reducing Shame</h3>
+                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">You should not have to publicly expose your life to ask for a ride. You should not have to perform collapse to ask for food. The platform is intended to ask for enough info to route help. It aims to not judge you.</p>
                 </div>
-                <div class="p-10 reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-ink text-[10px] tracking-widest uppercase mb-4">For Partners</h4>
-                    <h3 class="text-2xl font-black text-ink mb-4">A Doorway to Help</h3>
-                    <p class="text-muted font-medium text-sm leading-relaxed">A business does not have to solve the whole problem. Placing a QuickResets code is intended to give people a quiet doorway to help. A counter becomes a help point. A menu becomes a support path.</p>
+                <div class="p-6 sm:p-8 lg:p-10 reveal-up hover:bg-concrete/20 transition-colors">
+                    <h4 class="font-bold text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For Partners</h4>
+                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">A Doorway to Help</h3>
+                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">A business does not have to solve the whole problem. Placing a QuickResets code is intended to give people a quiet doorway to help. A counter becomes a help point. A menu becomes a support path.</p>
                 </div>
             </div>
         </section>
 
         <!-- Why this exists -->
-        <section class="w-full bg-ink text-sticker rounded-[2rem] shadow-brutal-lg p-8 md:p-20 text-center">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-10 kinetic-text uppercase">WHY THIS EXISTS.</h2>
-                <p class="text-xl md:text-3xl text-sticker/70 font-medium leading-snug mb-16 reveal-up">
+        <section class="w-full bg-ink text-sticker rounded-2xl md:rounded-[2rem] shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 text-center">
+            <div class="max-w-3xl lg:max-w-4xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-6 sm:mb-10 kinetic-text uppercase">WHY THIS EXISTS.</h2>
+                <p class="text-lg sm:text-xl lg:text-3xl text-sticker/70 font-medium leading-relaxed sm:leading-snug mb-10 sm:mb-16 reveal-up">
                     QuickResets is being built because too many people collapse in silence. They may still look capable. They may be embarrassed. They may not fit a program. This project is intended for them.
                 </p>
                 
-                <div class="bg-[#1C1C1C] p-8 md:p-12 rounded-xl text-left inline-block reveal-up border border-muted/20 w-full">
-                    <h3 class="text-xs font-bold text-crimson tracking-widest uppercase mb-6">Core Mission</h3>
-                    <p class="text-xl text-sticker font-black mb-8 leading-snug uppercase">
+                <div class="bg-[#1C1C1C] p-6 sm:p-8 lg:p-12 rounded-xl text-left inline-block reveal-up border border-muted/20 w-full">
+                    <h3 class="text-[10px] sm:text-xs font-bold text-crimson tracking-widest uppercase mb-4 sm:mb-6">Core Mission</h3>
+                    <p class="text-lg sm:text-xl text-sticker font-black mb-6 sm:mb-8 leading-snug uppercase">
                         QuickResets aims to connect people with urgent needs to direct support through public QR codes — without judgment, humiliation, or unnecessary barriers.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-bold text-muted tracking-wide uppercase">
-                        <div class="flex items-center gap-3"><div class="w-2 h-2 bg-crimson"></div> Help without humiliation</div>
-                        <div class="flex items-center gap-3"><div class="w-2 h-2 bg-sticker"></div> Support without judgment</div>
-                        <div class="flex items-center gap-3"><div class="w-2 h-2 bg-sticker"></div> Safety before collapse</div>
-                        <div class="flex items-center gap-3"><div class="w-2 h-2 bg-sticker"></div> Autonomy preserved</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm font-bold text-muted tracking-wide uppercase">
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-crimson"></div> Help without humiliation</div>
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Support without judgment</div>
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Safety before collapse</div>
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Autonomy preserved</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- The Data Proving The Need -->
-        <section class="w-full bg-sticker bg-paper-texture rounded-[2rem] border-2 border-ink shadow-brutal-lg p-8 md:p-20 relative overflow-hidden flex flex-col items-center">
-            <div class="w-full max-w-6xl relative z-10">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-ink pb-8 reveal-up">
-                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase">The Data Proving The Need.</h2>
-                    <span class="font-bold text-crimson text-[10px] tracking-widest mt-4 md:mt-0 uppercase text-right max-w-xs leading-relaxed">
+        <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 relative overflow-hidden flex flex-col items-center">
+            <div class="w-full max-w-4xl lg:max-w-5xl relative z-10">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 border-b border-ink pb-6 sm:pb-8 reveal-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter uppercase max-w-2xl">The Data Proving The Need.</h2>
+                    <span class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 sm:mt-0 uppercase text-left sm:text-right max-w-xs leading-relaxed">
                         Dataset 01<br>This is only the first of many that will be published.
                     </span>
                 </div>
                 
-                <div class="w-full border-2 border-ink shadow-brutal bg-white rounded-xl overflow-hidden reveal-up transition-transform duration-500 hover:shadow-brutal-lg hover:-translate-y-1">
-                    <iframe src="https://claude.site/public/artifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="forensic_dataset_map__character_assassination.md" width="100%" height="600" frameborder="0" allow="clipboard-write" allowfullscreen class="w-full block"></iframe>
+                <div class="w-full border-2 border-ink shadow-brutal bg-white rounded-lg sm:rounded-xl overflow-hidden reveal-up transition-transform duration-500 hover:shadow-brutal-lg hover:-translate-y-1">
+                    <iframe src="https://claude.site/public/artifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="forensic_dataset_map__character_assassination.md" class="w-full h-[400px] sm:h-[500px] lg:h-[600px] block border-0" allow="clipboard-write" allowfullscreen></iframe>
                 </div>
             </div>
             
             <!-- Decorative corner elements to reinforce physical framing -->
-            <div class="absolute top-8 left-8 w-4 h-4 border-t-2 border-l-2 border-ink"></div>
-            <div class="absolute top-8 right-8 w-4 h-4 border-t-2 border-r-2 border-ink"></div>
+            <div class="absolute top-4 sm:top-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
+            <div class="absolute top-4 sm:top-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
         </section>
 
-        <footer class="w-full pt-16 pb-8 border-t-4 border-ink flex flex-col md:flex-row justify-between items-end gap-8 relative z-20">
+        <footer class="w-full pt-12 sm:pt-16 pb-8 border-t-4 border-ink flex flex-col md:flex-row justify-between items-start md:items-end gap-6 sm:gap-8 relative z-20">
             <div>
-                <div class="font-black text-3xl tracking-tighter text-ink mb-2">QuickResets<span class="text-crimson">.</span></div>
-                <p class="text-ink font-bold text-[10px] tracking-widest uppercase">Public QR Codes + $1 Micro-Donations + Direct Aid.</p>
+                <div class="font-black text-2xl sm:text-3xl tracking-tighter text-ink mb-1 sm:mb-2">QuickResets<span class="text-crimson">.</span></div>
+                <p class="text-ink font-bold text-[9px] sm:text-[10px] tracking-widest uppercase">Public QR Codes + $1 Micro-Donations + Direct Aid.</p>
             </div>
             
-            <div class="flex flex-wrap gap-6 text-[10px] font-bold tracking-widest text-ink uppercase">
+            <div class="flex flex-wrap gap-4 sm:gap-6 text-[9px] sm:text-[10px] font-bold tracking-widest text-ink uppercase">
                 <a href="#" class="hover:text-crimson transition-colors hover-trigger">Partner</a>
                 <a href="#" class="hover:text-crimson transition-colors hover-trigger">Request Aid</a>
                 <a href="#" class="hover:text-crimson transition-colors hover-trigger">Donate $1</a>
