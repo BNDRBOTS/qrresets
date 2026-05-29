@@ -140,11 +140,18 @@
         }
 
         /* Kinetic Typography Sub-structure */
-        .split-line { overflow: hidden; display: block; }
+        .split-line { 
+            overflow: hidden; 
+            display: block; 
+            padding-right: 0.5em; 
+            margin-right: -0.5em;
+        }
         .char { 
             display: inline-block; 
             transform: translateY(110%); 
-            will-change: transform; 
+            will-change: transform;
+            padding-right: 0.1em;
+            margin-right: -0.1em;
         }
 
         /* Custom SVG Background for the "Sticker" panels */
@@ -187,16 +194,16 @@
             <div class="max-w-4xl lg:max-w-5xl relative z-10 w-full">
                 <div class="font-bold text-ink tracking-widest text-[9px] sm:text-[10px] md:text-xs mb-6 sm:mb-8 reveal-up uppercase border border-ink inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">Dignity First</div>
                 
-                <h1 class="text-[12vw] sm:text-[10vw] lg:text-[8vw] xl:text-[6.5vw] leading-[0.85] font-black tracking-tighter mb-6 sm:mb-8 text-ink uppercase">
+                <h1 class="text-[12vw] sm:text-[10vw] lg:text-[9vw] xl:text-[8vw] leading-[0.85] font-black tracking-tighter mb-6 sm:mb-8 text-ink uppercase">
                     <div class="kinetic-text">HELP WITHOUT</div>
                     <div class="kinetic-text">HUMILIATION<span class="text-crimson">.</span></div>
                 </h1>
                 
-                <h2 class="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tighter text-ink mb-8 sm:mb-12 reveal-up">
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter text-ink mb-8 sm:mb-12 reveal-up">
                     SCAN. $1. RESET.
                 </h2>
 
-                <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted font-medium max-w-2xl mx-auto reveal-up leading-relaxed sm:leading-snug">
+                <p class="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-muted font-medium max-w-2xl mx-auto reveal-up leading-relaxed sm:leading-snug">
                     A QR code. A dollar. A real person gets help. <br class="hidden sm:block">
                     No public begging. No shame. No judgment.
                 </p>
@@ -402,7 +409,7 @@
                 </div>
                 
                 <div class="w-full border-2 border-ink shadow-brutal bg-white rounded-lg sm:rounded-xl overflow-hidden reveal-up transition-transform duration-500 hover:shadow-brutal-lg hover:-translate-y-1">
-                    <iframe src="https://claude.site/public/artifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="forensic_dataset_map__character_assassination.md" class="w-full h-[400px] sm:h-[500px] lg:h-[600px] block border-0" allow="clipboard-write" allowfullscreen></iframe>
+                    <iframe src="https://claude.site/public/artifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="Dataset Render" class="w-full h-[250px] sm:h-[300px] lg:h-[400px] block border-0 bg-[#E8E8E8]" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
                 </div>
             </div>
             
