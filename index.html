@@ -50,24 +50,35 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .brutalist-card {
-                @apply bg-sticker border-2 border-ink shadow-brutal transition-all duration-300 ease-brutal hover:shadow-brutal-hover hover:translate-x-[4px] hover:translate-y-[4px];
+                @apply bg-sticker border-2 border-ink shadow-brutal transition-all duration-300 ease-brutal;
             }
             .brutalist-btn {
-                @apply bg-ink text-sticker font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-sticker hover:text-ink transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
+                @apply bg-ink text-sticker font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
             }
             .brutalist-btn-outline {
-                @apply bg-transparent text-ink font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-ink hover:text-sticker transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
+                @apply bg-transparent text-ink font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
             }
             .hide-scrollbar::-webkit-scrollbar { display: none; }
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
             
-            /* Responsive layout alternative to restricted positioning attributes */
             .grid-stack {
                 display: grid;
             }
             .grid-stack > * {
                 grid-column: 1 / -1;
                 grid-row: 1 / -1;
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                .brutalist-card:hover {
+                    @apply shadow-brutal-hover translate-x-[4px] translate-y-[4px];
+                }
+                .brutalist-btn:hover {
+                    @apply bg-sticker text-ink;
+                }
+                .brutalist-btn-outline:hover {
+                    @apply bg-ink text-sticker;
+                }
             }
         }
 
@@ -265,22 +276,22 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger transition-colors reveal-up hover:border-sticker">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-crimson mb-4 sm:mb-6"></div>
                         <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">A Private Ride</h3>
                         <p class="text-xs sm:text-sm text-sticker/60 font-[500]">Transportation to maintain employment or access necessary care reliably and efficiently.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger transition-colors reveal-up hover:border-sticker">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
                         <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">Safe Shelter</h3>
                         <p class="text-xs sm:text-sm text-sticker/60 font-[500]">A secure night off the street. Temporary housing to ensure a fundamental physical reset.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger transition-colors reveal-up hover:border-sticker">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
                         <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">A Rent Gap</h3>
                         <p class="text-xs sm:text-sm text-sticker/60 font-[500]">Covering the critical financial margin to keep housing secure and continuous.</p>
                     </div>
-                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
+                    <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger transition-colors reveal-up hover:border-sticker">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-concrete mb-4 sm:mb-6"></div>
                         <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">Agency Routing</h3>
                         <p class="text-xs sm:text-sm text-sticker/60 font-[500]">A direct connection to the right agency, providing a tailored and highly effective next step.</p>
@@ -306,7 +317,7 @@
                 <div class="motion-text text-muted">or housing circumstances.</div>
             </h2>
             
-            <div class="w-1 h-12 sm:h-16 bg-ink mx-auto my-8 sm:my-12 reveal-up"></div>
+            <div class="w-full max-w-4xl lg:max-w-5xl h-1 bg-ink mx-auto my-8 sm:my-12 reveal-up"></div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left max-w-4xl lg:max-w-5xl w-full">
                 <div class="reveal-up border-l-4 border-ink pl-5 sm:pl-6">
