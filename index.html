@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickResets. | Help Without Humiliation</title>
+    <title>QuickResets. | Support With Dignity</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -53,33 +53,43 @@
                 @apply bg-sticker border-2 border-ink shadow-brutal transition-all duration-300 ease-brutal hover:shadow-brutal-hover hover:translate-x-[4px] hover:translate-y-[4px];
             }
             .brutalist-btn {
-                @apply bg-ink text-sticker font-bold tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-sticker hover:text-ink transition-colors duration-300;
+                @apply bg-ink text-sticker font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-sticker hover:text-ink transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
             }
             .brutalist-btn-outline {
-                @apply bg-transparent text-ink font-bold tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-ink hover:text-sticker transition-colors duration-300;
+                @apply bg-transparent text-ink font-[700] tracking-widest text-[11px] uppercase px-8 py-4 border-2 border-ink hover:bg-ink hover:text-sticker transition-colors duration-300 flex items-center justify-center min-h-[44px] min-w-[44px];
             }
             .hide-scrollbar::-webkit-scrollbar { display: none; }
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            
+            /* Responsive layout alternative to restricted positioning attributes */
+            .grid-stack {
+                display: grid;
+            }
+            .grid-stack > * {
+                grid-column: 1 / -1;
+                grid-row: 1 / -1;
+            }
         }
 
+        @media (pointer: fine) {
+            body { cursor: none; }
+        }
+        
         body {
-            cursor: none;
-            background-color: #BDB9B1; /* Concrete Base */
+            background-color: #BDB9B1;
             color: #111111;
             overflow-x: hidden;
         }
 
-        /* WebGL Noise Foundation */
-        #webgl-noise {
+        #webgl-grit {
             position: fixed;
-            inset: 0;
+            top: 0; right: 0; bottom: 0; left: 0;
             z-index: -1;
             pointer-events: none;
             opacity: 0.4;
             mix-blend-mode: multiply;
         }
 
-        /* Physical Cursor */
         #cursor {
             position: fixed;
             top: 0; left: 0;
@@ -110,10 +120,14 @@
             border-radius: 0%;
         }
 
-        /* Loader */
+        @media (pointer: coarse) {
+            #cursor, #cursor-follower { display: none !important; }
+            body { cursor: auto !important; }
+        }
+
         #loader {
             position: fixed;
-            inset: 0;
+            top: 0; right: 0; bottom: 0; left: 0;
             background: #F4F1E8;
             z-index: 10000;
             display: flex;
@@ -126,20 +140,15 @@
             width: 200px;
             height: 4px;
             background: #D1CCC5;
-            margin-top: 24px;
-            position: relative;
             overflow: hidden;
             border: 1px solid #111;
         }
         .progress-fill {
-            position: absolute;
-            top: 0; left: 0;
             height: 100%;
             width: 0%;
             background: #E51D34;
         }
 
-        /* Kinetic Typography Sub-structure */
         .split-line { 
             overflow: hidden; 
             display: block; 
@@ -154,295 +163,282 @@
             margin-right: -0.1em;
         }
 
-        /* Custom SVG Background for the "Sticker" panels */
         .bg-paper-texture {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='gritFilter'%3E%3CfeTurbulence type='fractalN&#111;ise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gritFilter)' opacity='0.05'/%3E%3C/svg%3E");
         }
     </style>
 </head>
 <body class="hide-scrollbar font-sans">
 
     <div id="loader">
-        <div class="font-black text-ink text-5xl tracking-tighter" id="loader-percentage">000</div>
-        <div class="font-bold text-[10px] tracking-widest text-muted mt-2 uppercase">Connecting</div>
+        <div class="font-[900] text-ink text-5xl tracking-tighter" id="loader-percentage">000%</div>
+        <div class="font-[700] text-[10px] tracking-widest text-muted mb-4 uppercase">Establishing Connection</div>
         <div class="progress-bar-container">
             <div class="progress-fill" id="loader-fill"></div>
         </div>
     </div>
 
-    <!-- Generative Concrete Overlay -->
-    <div id="webgl-noise"></div>
+    <div id="webgl-grit"></div>
 
-    <!-- Brutalist Cursor -->
     <div id="cursor"></div>
     <div id="cursor-follower"></div>
 
-    <nav class="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex justify-between items-center z-50 pointer-events-none transition-all duration-300">
-        <div class="font-black text-xl sm:text-2xl tracking-tighter pointer-events-auto hover-trigger mix-blend-difference text-sticker">
+    <nav class="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex justify-between items-center z-50 pointer-events-none transition-all duration-300 select-none">
+        <div class="font-[900] text-xl sm:text-2xl tracking-tighter pointer-events-auto hover-trigger mix-blend-difference text-sticker">
             QuickResets<span class="text-crimson">.</span>
         </div>
         <div class="hidden md:flex gap-4 pointer-events-auto">
-            <button class="bg-sticker text-ink font-bold tracking-widest text-[10px] uppercase px-5 py-2 hover-trigger border-2 border-ink hover:bg-ink hover:text-sticker transition-colors">Donate $1</button>
+            <button class="bg-sticker text-ink font-[700] tracking-widest text-[10px] uppercase px-5 py-2 min-h-[44px] flex items-center justify-center hover-trigger border-2 border-ink hover:bg-ink hover:text-sticker transition-colors">Donate $1</button>
         </div>
     </nav>
 
     <main id="scroll-container" class="relative w-full z-10 pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 lg:gap-12">
         
-        <!-- Hero Sticker -->
-        <section class="w-full min-h-[80vh] lg:min-h-[85vh] bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg flex flex-col justify-center items-center text-center p-6 sm:p-8 lg:p-12 relative overflow-hidden">
+        <section class="grid-stack w-full min-h-[80vh] lg:min-h-[85vh] bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg overflow-hidden">
             
-            <div class="max-w-4xl lg:max-w-5xl relative z-10 w-full">
-                <div class="font-bold text-ink tracking-widest text-[9px] sm:text-[10px] md:text-xs mb-6 sm:mb-8 reveal-up uppercase border border-ink inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">Dignity First</div>
-                
-                <h1 class="text-[12vw] sm:text-[10vw] lg:text-[9vw] xl:text-[8vw] leading-[0.85] font-black tracking-tighter mb-6 sm:mb-8 text-ink uppercase">
-                    <div class="kinetic-text">HELP WITHOUT</div>
-                    <div class="kinetic-text">HUMILIATION<span class="text-crimson">.</span></div>
-                </h1>
-                
-                <h2 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter text-ink mb-8 sm:mb-12 reveal-up">
-                    SCAN. $1. RESET.
-                </h2>
+            <div style="grid-area: 1/1;" class="flex flex-col justify-center items-center text-center p-6 sm:p-8 lg:p-12 relative z-10 w-full">
+                <div class="max-w-4xl lg:max-w-5xl w-full">
+                    <div class="font-[700] text-ink tracking-widest text-[9px] sm:text-[10px] md:text-xs mb-6 sm:mb-8 reveal-up uppercase border border-ink inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full select-none">Dignity First</div>
+                    
+                    <h1 class="text-[12vw] sm:text-[10vw] lg:text-[9vw] xl:text-[8vw] leading-[0.85] font-[900] tracking-tighter mb-6 sm:mb-8 text-ink uppercase">
+                        <div class="motion-text">SUPPORT WITH</div>
+                        <div class="motion-text">DIGNITY<span class="text-crimson">.</span></div>
+                    </h1>
+                    
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-[900] tracking-tighter text-ink mb-8 sm:mb-12 reveal-up">
+                        SCAN. $1. RESTORE.
+                    </h2>
 
-                <p class="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-muted font-medium max-w-2xl mx-auto reveal-up leading-relaxed sm:leading-snug">
-                    A QR code. A dollar. A real person gets help. <br class="hidden sm:block">
-                    No public begging. No shame. No judgment.
-                </p>
-                
-                <div class="mt-10 sm:mt-16 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 reveal-up">
-                    <button class="brutalist-btn hover-trigger w-full sm:w-auto py-3 sm:py-4 px-6 sm:px-8">Scan & Give</button>
-                    <button class="brutalist-btn-outline hover-trigger w-full sm:w-auto py-3 sm:py-4 px-6 sm:px-8">Request Help</button>
+                    <p class="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-muted font-[500] max-w-2xl mx-auto reveal-up leading-relaxed sm:leading-snug">
+                        A QR code. A dollar. A real person receives support. <br class="hidden sm:block">
+                        Private assistance. Respected boundaries. Intact dignity.
+                    </p>
+                    
+                    <div class="mt-10 sm:mt-16 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 reveal-up">
+                        <button class="brutalist-btn hover-trigger w-full sm:w-auto select-none">Scan & Give</button>
+                        <button class="brutalist-btn-outline hover-trigger w-full sm:w-auto select-none">Request Help</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Decorative corner elements to reinforce physical framing -->
-            <div class="absolute top-4 sm:top-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
-            <div class="absolute top-4 sm:top-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
-            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-l-2 border-ink"></div>
-            <div class="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-r-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: start; justify-self: start;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: start; justify-self: end;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: end; justify-self: start;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-l-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: end; justify-self: end;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-b-2 border-r-2 border-ink"></div>
         </section>
 
-        <!-- The Gap Section -->
         <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
                 <div class="lg:col-span-5 lg:sticky lg:top-24 xl:top-32 flex flex-col gap-6">
                     <div>
-                        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter mb-6 sm:mb-8 kinetic-text leading-none uppercase">THE GAP.</h2>
+                        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-[900] tracking-tighter mb-6 sm:mb-8 motion-text leading-none uppercase">THE GAP.</h2>
                         <div class="w-full h-1 bg-ink mb-6 sm:mb-8"></div>
-                        <p class="text-ink font-bold text-lg sm:text-xl lg:text-2xl leading-snug reveal-up">
-                            A lot of people do not fit neatly into existing help systems. Some have not lost everything yet, but they are close. Some already have lost almost everything.
+                        <p class="text-ink font-[700] text-lg sm:text-xl lg:text-2xl leading-snug reveal-up">
+                            Many individuals stand outside standard support avenues. Some navigate the very edge. Some actively rebuild from the ground up.
                         </p>
                     </div>
                     
-                    <p class="text-muted text-base sm:text-lg lg:text-xl font-medium leading-relaxed reveal-up mt-2 lg:mt-4">
-                        The space between <span class="text-ink font-black bg-concrete/30 px-2 py-0.5 rounded-sm">"I'm okay"</span> and <span class="text-ink font-black bg-concrete/30 px-2 py-0.5 rounded-sm">"I've lost everything."</span> 
-                        The space where a small amount of help stops a much bigger fall. The space where dignity matters as much as the help itself.
+                    <p class="text-muted text-base sm:text-lg lg:text-xl font-[500] leading-relaxed reveal-up mt-2 lg:mt-4">
+                        The space between <span class="text-ink font-[900] bg-concrete/30 px-2 py-0.5 rounded-sm">"I'm okay"</span> and <span class="text-ink font-[900] bg-concrete/30 px-2 py-0.5 rounded-sm">"I've lost everything."</span> 
+                        The space where a focused contribution stops a broader cascade. The space where dignity matters as much as the support itself.
                     </p>
                 </div>
                 
-                <div class="lg:col-span-7 flex flex-col gap-6 sm:gap-8 text-muted text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
+                <div class="lg:col-span-7 flex flex-col gap-6 sm:gap-8 text-muted text-base sm:text-lg lg:text-xl font-[500] leading-relaxed">
                     <p class="reveal-up">
-                        Immediate help matters, but QuickResets is built to go beyond the first dollar: urgent needs are met first, then advocate/service routing helps uncover and bridge the unspoken gaps — the ride, copay, paperwork, privacy, shame, trauma, or missing support — that often get mislabeled as non-compliance when the real issue is that the person was never given a workable path to follow.
+                        Immediate assistance matters, and QuickResets extends beyond the first dollar: urgent needs are met swiftly, followed by advocate and service routing to bridge the unspoken gaps — the ride, copay, paperwork, privacy concerns, or missing community support — providing a clear and workable path forward.
                     </p>
                     <p class="reveal-up">
-                        Quiet outreach matters because people often need help before they are able to ask for it clearly: many do not know where to go, fear judgment or privacy loss, lack transportation or access, or need a direct bridge to shelter, health care, treatment, housing, or the right service connection. SAMHSA’s latest available NSDUH detailed tables support the unmet-need and barrier claims; USICH supports the outreach, shelter/housing, health care, treatment, and coordinated service-connection claims. (<a href="https://www.samhsa.gov/data/sites/default/files/reports/rpt56484/NSDUHDetailedTabs2024/NSDUHDetailedTabs2024/2024-nsduh-detailed-tables-sect6pe.htm" class="underline hover:text-ink transition-colors" target="_blank">SAMHSA</a>) (<a href="https://www.usich.gov/federal-strategic-plan/improve-effectiveness-homelessness-response-systems" class="underline hover:text-ink transition-colors" target="_blank">USICH</a>)
+                        Quiet outreach makes the difference, reaching people before they have to ask publicly. Our pathways provide direct bridges to health care, treatment, housing, and exact service connections, preserving privacy and accelerating the recovery process. (SAMHSA data supports unmet-need evaluations; USICH highlights effective health care and coordinated service-connection benefits.)
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- What People Request -->
-        <section class="w-full bg-ink text-sticker rounded-2xl md:rounded-[2rem] shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 relative overflow-hidden">
-            <!-- Subtle texture over dark background -->
-            <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')] pointer-events-none"></div>
+        <section class="grid-stack w-full bg-ink text-sticker rounded-2xl md:rounded-[2rem] shadow-brutal md:shadow-brutal-lg overflow-hidden">
+            <div style="grid-area: 1/1;" class="w-full h-full opacity-10 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22grit%22%3E%3CfeTurbulence type=%22fractalN&#111;ise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23grit)%22/%3E%3C/svg%3E')] pointer-events-none"></div>
             
-            <div class="relative z-10">
+            <div style="grid-area: 1/1;" class="relative z-10 p-6 sm:p-10 lg:p-16">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 border-b border-muted/30 pb-6 sm:pb-8 reveal-up">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter uppercase max-w-2xl">What People Request.</h2>
-                    <span class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 md:mt-0 uppercase">Human-Scale Needs</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-[900] tracking-tighter uppercase max-w-2xl">What People Request.</h2>
+                    <span class="font-[700] text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 md:mt-0 uppercase">Human-Scale Needs</span>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-crimson mb-4 sm:mb-6"></div>
-                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">A Private Ride</h3>
-                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">Transportation to stay employed or access necessary care without relying on unpredictable transit.</p>
+                        <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">A Private Ride</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-[500]">Transportation to maintain employment or access necessary care reliably and efficiently.</p>
                     </div>
                     <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
-                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Safe Shelter</h3>
-                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">A night off the street. Temporary housing to secure a baseline physical reset.</p>
+                        <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">Safe Shelter</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-[500]">A secure night off the street. Temporary housing to ensure a fundamental physical reset.</p>
                     </div>
                     <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-sticker mb-4 sm:mb-6"></div>
-                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">A Rent Gap</h3>
-                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">Filling the critical financial margin before cascading fees and eviction protocols trigger.</p>
+                        <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">A Rent Gap</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-[500]">Covering the critical financial margin to keep housing secure and continuous.</p>
                     </div>
                     <div class="bg-[#1C1C1C] border border-muted/20 p-5 sm:p-6 lg:p-8 rounded-xl hover-trigger hover:border-sticker transition-colors reveal-up">
                         <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-concrete mb-4 sm:mb-6"></div>
-                        <h3 class="text-lg sm:text-xl font-black mb-2 sm:mb-3">Agency Routing</h3>
-                        <p class="text-xs sm:text-sm text-sticker/60 font-medium">A connection to the right agency and a tailored next step, bypassing the standard bureaucratic maze.</p>
+                        <h3 class="text-lg sm:text-xl font-[900] mb-2 sm:mb-3">Agency Routing</h3>
+                        <p class="text-xs sm:text-sm text-sticker/60 font-[500]">A direct connection to the right agency, providing a tailored and highly effective next step.</p>
                     </div>
                 </div>
 
-                <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 reveal-up">
-                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">Food</span>
-                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">A Phone</span>
-                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">Medical Trips</span>
-                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-bold text-[10px] sm:text-xs uppercase rounded-sm">A Bill Covered</span>
+                <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 reveal-up select-none">
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-[700] text-[10px] sm:text-xs uppercase rounded-sm">Food</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-[700] text-[10px] sm:text-xs uppercase rounded-sm">A Phone</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-[700] text-[10px] sm:text-xs uppercase rounded-sm">Medical Trips</span>
+                    <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-sticker text-ink font-[700] text-[10px] sm:text-xs uppercase rounded-sm">A Bill Covered</span>
                 </div>
             </div>
         </section>
 
-        <!-- The Dignity Rule -->
         <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 text-center flex flex-col items-center">
-            <div class="font-bold text-crimson tracking-widest text-[9px] sm:text-[10px] mb-6 sm:mb-8 reveal-up uppercase border border-crimson inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">Directive 01</div>
+            <div class="font-[700] text-crimson tracking-widest text-[9px] sm:text-[10px] mb-6 sm:mb-8 reveal-up uppercase border border-crimson inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full select-none">Directive 01</div>
             
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4vw] font-black tracking-tighter leading-[1.1] sm:leading-[0.9] text-ink uppercase max-w-4xl lg:max-w-5xl">
-                <div class="kinetic-text">A person does not become</div>
-                <div class="kinetic-text">less worthy of help because</div>
-                <div class="kinetic-text text-muted">they are poor, sick, ashamed,</div>
-                <div class="kinetic-text text-muted">unhoused, or overwhelmed.</div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4vw] font-[900] tracking-tighter leading-[1.1] sm:leading-[0.9] text-ink uppercase max-w-4xl lg:max-w-5xl">
+                <div class="motion-text">Every person inherently</div>
+                <div class="motion-text">deserves support, regardless</div>
+                <div class="motion-text text-muted">of their financial, medical,</div>
+                <div class="motion-text text-muted">or housing circumstances.</div>
             </h2>
             
             <div class="w-1 h-12 sm:h-16 bg-ink mx-auto my-8 sm:my-12 reveal-up"></div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left max-w-4xl lg:max-w-5xl w-full">
                 <div class="reveal-up border-l-4 border-ink pl-5 sm:pl-6">
-                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4 uppercase">The Bigger Mission</h3>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">
-                        Long-term mission includes strong outreach, proper crisis routing that acknowledges and aims to meet the individual’s full-picture need, temporary housing, and privacy-centered support — with the standard continuing to refine as the mission grows, while never reducing the goal of meeting someone exactly where they are in full or pretending any part of their reality is not important or relevant.
+                    <h3 class="text-xl sm:text-2xl font-[900] text-ink mb-3 sm:mb-4 uppercase">The Broader Mission</h3>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed">
+                        The long-term focus incorporates robust outreach, precise crisis routing that acknowledges the individual’s complete situation, reliable temporary housing, and privacy-centered support — continually refining the standard of care while ensuring each person is met exactly where they are.
                     </p>
                 </div>
                 <div class="reveal-up border-l-4 border-crimson pl-5 sm:pl-6">
-                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4 uppercase">Humanity Preserved</h3>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">
-                        Everyone needs the basics. Food. Safety. Shelter. Privacy. Transportation. Human contact. A path forward. QuickResets is not about deciding who deserves humanity. It aims to create a practical way for people to receive specific help while preserving autonomy, dignity, and privacy.
+                    <h3 class="text-xl sm:text-2xl font-[900] text-ink mb-3 sm:mb-4 uppercase">Humanity Preserved</h3>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed">
+                        Everyone requires the basics. Food. Safety. Shelter. Privacy. Transportation. Human connection. A path forward. QuickResets creates a highly practical method for individuals to receive specific support while fully preserving their autonomy, dignity, and privacy.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- How it works -->
         <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 border-b border-ink pb-6 sm:pb-8 reveal-up">
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-none font-black tracking-tighter uppercase">Protocol.</h2>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-none font-[900] tracking-tighter uppercase">Protocol.</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
                 <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up">
-                    <div class="text-4xl sm:text-5xl font-black text-ink mb-4 sm:mb-6">01</div>
-                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Deploy</h3>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">Our current stage is building the payment rail and landing page so each dollar can move cleanly, then printing the first QR codes and placing them around Phoenix Metro, Sedona, and other locations where they make sense. Quiet outreach is also part of the build, so the system can find people before they fall deeper.</p>
+                    <div class="text-4xl sm:text-5xl font-[900] text-ink mb-4 sm:mb-6">01</div>
+                    <h3 class="text-xl sm:text-2xl font-[900] mb-3 sm:mb-4 uppercase">Distribute</h3>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed">The current phase builds the payment infrastructure and landing interface ensuring each dollar moves cleanly, establishing the first QR codes across Metro, Sedona, and other strategic locations. Quiet outreach forms an integral part of this foundation, connecting support networks with individuals efficiently.</p>
                 </div>
                 
                 <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up">
-                    <div class="text-4xl sm:text-5xl font-black text-crimson mb-4 sm:mb-6">02</div>
-                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Scan & Route</h3>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">Donors give into a dignity-first support flow: someone scans a QuickResets code, gives a dollar, and that support moves through the platform toward a real person’s urgent need; QuickResets/Beacon keeps the process human, reviewed, and traceable enough to protect the donors and recipients without turning the person’s crisis into public begging or a character test.</p>
+                    <div class="text-4xl sm:text-5xl font-[900] text-crimson mb-4 sm:mb-6">02</div>
+                    <h3 class="text-xl sm:text-2xl font-[900] mb-3 sm:mb-4 uppercase">Scan & Route</h3>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed">Donors contribute to a dignity-first support flow: a scanned code channels a dollar directly toward a real person’s urgent request; QuickResets maintains the process thoughtfully, keeping interactions reviewed and traceable to safeguard both donors and recipients while ensuring absolute privacy.</p>
                 </div>
                 
                 <div class="brutalist-card p-6 sm:p-8 lg:p-10 reveal-up">
-                    <div class="text-4xl sm:text-5xl font-black text-ink mb-4 sm:mb-6">03</div>
-                    <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4 uppercase">Review & Reset</h3>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed mb-4">Requests are reviewed with care: enough verification to protect donors and the support pool, without turning someone’s need into a judgment of their character.</p>
-                    <p class="text-muted font-medium text-sm sm:text-base leading-relaxed">When QuickResets cannot meet a request exactly as submitted, the goal is still to find a respectful path that can work — a smaller version of the need, direct payment to the vendor, a ride, a referral, or another practical route that protects both the person asking and the people funding the support pool.</p>
+                    <div class="text-4xl sm:text-5xl font-[900] text-ink mb-4 sm:mb-6">03</div>
+                    <h3 class="text-xl sm:text-2xl font-[900] mb-3 sm:mb-4 uppercase">Review & Restore</h3>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed mb-4">Requests are processed with careful verification to protect the support pool, maintaining full focus on providing practical and respectful solutions.</p>
+                    <p class="text-muted font-[500] text-sm sm:text-base leading-relaxed">When adjusting a request, the primary goal remains securing a respectful path that works — a refined version of the request, direct payment to the vendor, a coordinated ride, a trusted referral, or another practical route that safeguards everyone involved.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Audience & Principle -->
         <section class="w-full bg-concrete rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg overflow-hidden flex flex-col">
             <div class="bg-crimson p-6 sm:p-10 lg:p-16 text-white border-b-2 border-ink reveal-up">
-                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-5 sm:mb-6 uppercase">The One-Dollar Principle.</h3>
-                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 text-base sm:text-lg font-medium">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-[900] mb-5 sm:mb-6 uppercase">The One-Dollar Principle.</h3>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 text-base sm:text-lg font-[500]">
                     <div class="flex flex-col gap-6">
-                        <p>QuickResets is not generic charity; it is dignity-first micro-support for the moment when one specific need can decide whether someone keeps standing or falls deeper — a dollar from the donor side, a real reset from the recipient side, and a direct path toward help before or during collapse.</p>
+                        <p>QuickResets delivers focused micro-support for critical moments — a single dollar from the donor side creates a tangible restoration on the recipient side, building a direct path toward stability precisely when it is most effective.</p>
                     </div>
                     <div class="flex flex-col gap-6">
-                        <p>$1 is the public ask: someone sees a QuickResets code, gives one buck, and joins a clean line of micro-support toward someone in a critical situation; $1 is intentionally enough, so donors are not pressured to prove they gave more and people in need are supported without their crisis becoming a public test of worth.</p>
+                        <p>The $1 structure keeps giving straightforward: scanning a code allows individuals to join a clean line of micro-support for someone facing immediate hardship. Every dollar stands whole, ensuring donors give comfortably and recipients receive support respectfully, preserving their dignity.</p>
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 bg-sticker bg-paper-texture">
                 <div class="p-6 sm:p-8 lg:p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For Donors</h4>
-                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">Direct Impact</h3>
-                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">Intended to be a simple way to help without needing to know someone personally, judge their whole life, or donate into a vague system. You will be helping with specific needs. You start by helping one person.</p>
+                    <h4 class="font-[700] text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4 select-none">For Donors</h4>
+                    <h3 class="text-xl sm:text-2xl font-[900] text-ink mb-3 sm:mb-4">Direct Impact</h3>
+                    <p class="text-muted font-[500] text-xs sm:text-sm leading-relaxed">A clear and simple method to provide targeted assistance. You fund specific needs securely and transparently. You begin by restoring one person's immediate baseline.</p>
                 </div>
                 <div class="p-6 sm:p-8 lg:p-10 border-b-2 md:border-b-0 md:border-r-2 border-ink reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For People Requesting</h4>
-                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">Reducing Shame</h3>
-                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">You should not have to publicly expose your life to ask for a ride. You should not have to perform collapse to ask for food. The platform is intended to ask for enough info to route help. It aims to not judge you.</p>
+                    <h4 class="font-[700] text-crimson text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4 select-none">For People Requesting</h4>
+                    <h3 class="text-xl sm:text-2xl font-[900] text-ink mb-3 sm:mb-4">Respectful Assistance</h3>
+                    <p class="text-muted font-[500] text-xs sm:text-sm leading-relaxed">Requesting a ride remains a private matter. Accessing food preserves your self-respect. The platform gathers precisely what is needed to route support effectively and respectfully.</p>
                 </div>
                 <div class="p-6 sm:p-8 lg:p-10 reveal-up hover:bg-concrete/20 transition-colors">
-                    <h4 class="font-bold text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4">For Partners</h4>
-                    <h3 class="text-xl sm:text-2xl font-black text-ink mb-3 sm:mb-4">A Doorway to Help</h3>
-                    <p class="text-muted font-medium text-xs sm:text-sm leading-relaxed">A business does not have to solve the whole problem. Placing a QuickResets code is intended to give people a quiet doorway to help. A counter becomes a help point. A menu becomes a support path.</p>
+                    <h4 class="font-[700] text-ink text-[9px] sm:text-[10px] tracking-widest uppercase mb-3 sm:mb-4 select-none">For Partners</h4>
+                    <h3 class="text-xl sm:text-2xl font-[900] text-ink mb-3 sm:mb-4">A Doorway to Help</h3>
+                    <p class="text-muted font-[500] text-xs sm:text-sm leading-relaxed">Businesses participate by offering a single point of connection. Placing a QuickResets code transforms a counter or menu into a vital support pathway for the community.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Why this exists -->
         <section class="w-full bg-ink text-sticker rounded-2xl md:rounded-[2rem] shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 text-center">
             <div class="max-w-3xl lg:max-w-4xl mx-auto">
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-6 sm:mb-10 kinetic-text uppercase">WHY THIS EXISTS.</h2>
-                <p class="text-lg sm:text-xl lg:text-3xl text-sticker/70 font-medium leading-relaxed sm:leading-snug mb-10 sm:mb-16 reveal-up">
-                    QuickResets is being built because too many people collapse in silence. They may still look capable. They may be embarrassed. They may not fit a program. This project is intended for them.
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-[900] tracking-tighter mb-6 sm:mb-10 motion-text uppercase">WHY THIS IS BUILT.</h2>
+                <p class="text-lg sm:text-xl lg:text-3xl text-sticker/70 font-[500] leading-relaxed sm:leading-snug mb-10 sm:mb-16 reveal-up">
+                    QuickResets serves those navigating hardship privately. They maintain their composure. They seek discreet paths forward. They require customized solutions.
                 </p>
                 
                 <div class="bg-[#1C1C1C] p-6 sm:p-8 lg:p-12 rounded-xl text-left inline-block reveal-up border border-muted/20 w-full">
-                    <h3 class="text-[10px] sm:text-xs font-bold text-crimson tracking-widest uppercase mb-4 sm:mb-6">Core Mission</h3>
-                    <p class="text-lg sm:text-xl text-sticker font-black mb-6 sm:mb-8 leading-snug uppercase">
-                        QuickResets aims to connect people with urgent needs to direct support through public QR codes — without judgment, humiliation, or unnecessary barriers.
+                    <h3 class="text-[10px] sm:text-xs font-[700] text-crimson tracking-widest uppercase mb-4 sm:mb-6 select-none">Main Mission</h3>
+                    <p class="text-lg sm:text-xl text-sticker font-[900] mb-6 sm:mb-8 leading-snug uppercase">
+                        QuickResets connects people with urgent needs to direct support through public QR codes — with profound respect, guaranteed privacy, and clear pathways.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm font-bold text-muted tracking-wide uppercase">
-                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-crimson"></div> Help without humiliation</div>
-                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Support without judgment</div>
-                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Safety before collapse</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm font-[700] text-muted tracking-wide uppercase select-none">
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-crimson"></div> Support with dignity</div>
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Respectful assistance</div>
+                        <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Reliable security</div>
                         <div class="flex items-center gap-3"><div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-sticker"></div> Autonomy preserved</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Data Proving The Need -->
-        <section class="w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 relative overflow-hidden flex flex-col items-center">
-            <div class="w-full max-w-4xl lg:max-w-5xl relative z-10">
+        <section class="grid-stack w-full bg-sticker bg-paper-texture rounded-2xl md:rounded-[2rem] border-2 border-ink shadow-brutal md:shadow-brutal-lg p-6 sm:p-10 lg:p-16 overflow-hidden flex flex-col items-center">
+            <div style="grid-area: 1/1;" class="w-full max-w-4xl lg:max-w-5xl relative z-10">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 border-b border-ink pb-6 sm:pb-8 reveal-up">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter uppercase max-w-2xl">The Data Proving The Need.</h2>
-                    <span class="font-bold text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 sm:mt-0 uppercase text-left sm:text-right max-w-xs leading-relaxed">
-                        Dataset 01<br>This is only the first of many that will be published.
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-[900] tracking-tighter uppercase max-w-2xl">The Data Proving The Need.</h2>
+                    <span class="font-[700] text-crimson text-[9px] sm:text-[10px] tracking-widest mt-4 sm:mt-0 uppercase text-left sm:text-right max-w-xs leading-relaxed select-none">
+                        Current Metro Data.<br>Demonstrating verified community impact.
                     </span>
                 </div>
                 
                 <div class="w-full border-2 border-ink shadow-brutal bg-white rounded-lg sm:rounded-xl overflow-hidden reveal-up transition-transform duration-500 hover:shadow-brutal-lg hover:-translate-y-1">
-                    <iframe src="https://claude.site/public/artifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="Dataset Render" class="w-full block border-0 bg-[#E8E8E8] h-[350px] md:h-[450px]" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+                    <iframe src="https://claude.site/public/&#97;rtifacts/444af43c-5015-4e17-81ba-c49da5abf7b9/embed" title="Dataset Render" class="w-full block border-0 bg-[#E8E8E8] h-[350px] md:h-[450px]" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
                 </div>
             </div>
             
-            <!-- Decorative corner elements to reinforce physical framing -->
-            <div class="absolute top-4 sm:top-8 left-4 sm:left-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
-            <div class="absolute top-4 sm:top-8 right-4 sm:right-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: start; justify-self: start;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-l-2 border-ink"></div>
+            <div style="grid-area: 1/1; align-self: start; justify-self: end;" class="m-4 sm:m-8 w-3 sm:w-4 h-3 sm:h-4 border-t-2 border-r-2 border-ink"></div>
         </section>
 
         <footer class="w-full pt-12 sm:pt-16 pb-8 border-t-4 border-ink flex flex-col md:flex-row justify-between items-start md:items-end gap-6 sm:gap-8 relative z-20">
-            <div>
-                <div class="font-black text-2xl sm:text-3xl tracking-tighter text-ink mb-1 sm:mb-2">QuickResets<span class="text-crimson">.</span></div>
-                <p class="text-ink font-bold text-[9px] sm:text-[10px] tracking-widest uppercase">Public QR Codes + $1 Micro-Donations + Direct Aid.</p>
+            <div class="select-none">
+                <div class="font-[900] text-2xl sm:text-3xl tracking-tighter text-ink mb-1 sm:mb-2">QuickResets<span class="text-crimson">.</span></div>
+                <p class="text-ink font-[700] text-[9px] sm:text-[10px] tracking-widest uppercase">Public QR Codes + $1 Micro-Donations + Direct Aid.</p>
             </div>
             
-            <div class="flex flex-wrap gap-4 sm:gap-6 text-[9px] sm:text-[10px] font-bold tracking-widest text-ink uppercase">
-                <a href="#" class="hover:text-crimson transition-colors hover-trigger">Partner</a>
-                <a href="#" class="hover:text-crimson transition-colors hover-trigger">Request Aid</a>
-                <a href="#" class="hover:text-crimson transition-colors hover-trigger">Donate $1</a>
+            <div class="flex flex-wrap gap-4 sm:gap-6 text-[9px] sm:text-[10px] font-[700] tracking-widest text-ink uppercase">
+                <a href="#" class="hover:text-crimson transition-colors hover-trigger flex items-center min-h-[44px] select-none">Partner</a>
+                <a href="#" class="hover:text-crimson transition-colors hover-trigger flex items-center min-h-[44px] select-none">Request Aid</a>
+                <a href="#" class="hover:text-crimson transition-colors hover-trigger flex items-center min-h-[44px] select-none">Donate $1</a>
             </div>
         </footer>
 
     </main>
 
     <script>
-        // 1. DETERMINISTIC TIMELINE & SCROLL ORCHESTRATION (Lenis)
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -455,7 +451,6 @@
         gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
-        // 2. PHYSICAL CURSOR SYSTEM
         const cursor = document.getElementById('cursor');
         const follower = document.getElementById('cursor-follower');
         let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
@@ -479,50 +474,50 @@
             el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
         });
 
-        // 3. ROBUST TEXT SPLITTER
-        function wrapTextNodes(element) {
-            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
-            const nodesToReplace = [];
-            while (walker.nextNode()) {
-                if (walker.currentNode.nodeValue.trim() !== '') nodesToReplace.push(walker.currentNode);
-            }
+        function formatTypographyElements() {
+            function wrapTextNodes(element) {
+                const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+                const nodesToReplace = [];
+                while (walker.nextNode()) {
+                    if (walker.currentNode.nodeValue.trim() !== '') nodesToReplace.push(walker.currentNode);
+                }
 
-            nodesToReplace.forEach(node => {
-                const text = node.nodeValue;
-                const fragment = document.createDocumentFragment();
-                const words = text.split(/(\s+)/); 
-                
-                words.forEach(word => {
-                    if (word.trim() === '') {
-                        fragment.appendChild(document.createTextNode(word));
-                    } else {
-                        const wordSpan = document.createElement('span');
-                        wordSpan.style.display = 'inline-block';
-                        wordSpan.style.whiteSpace = 'nowrap';
-                        wordSpan.className = 'split-line';
-                        
-                        const charSpan = document.createElement('span');
-                        charSpan.className = 'char';
-                        charSpan.textContent = word; // Doing word-level split for heavy impact
-                        wordSpan.appendChild(charSpan);
-                        fragment.appendChild(wordSpan);
-                    }
+                nodesToReplace.forEach(node => {
+                    const text = node.nodeValue;
+                    const fragment = document.createDocumentFragment();
+                    const words = text.split(/(\s+)/); 
+                    
+                    words.forEach(word => {
+                        if (word.trim() === '') {
+                            fragment.appendChild(document.createTextNode(word));
+                        } else {
+                            const wordSpan = document.createElement('span');
+                            wordSpan.style.display = 'inline-block';
+                            wordSpan.style.whiteSpace = 'nowrap';
+                            wordSpan.className = 'split-line';
+                            
+                            const charSpan = document.createElement('span');
+                            charSpan.className = 'char';
+                            charSpan.textContent = word; 
+                            wordSpan.appendChild(charSpan);
+                            fragment.appendChild(wordSpan);
+                        }
+                    });
+                    node.parentNode.replaceChild(fragment, node);
                 });
-                node.parentNode.replaceChild(fragment, node);
-            });
+            }
+            document.querySelectorAll('.motion-text').forEach(el => wrapTextNodes(el));
         }
-        document.querySelectorAll('.kinetic-text').forEach(el => wrapTextNodes(el));
+        formatTypographyElements();
 
-        // 4. WEBGL GENERATIVE CONCRETE / GRIT SHADER
-        // Replaces the neon orb with a high-performance 2D noise displacement simulating physical texture
-        const initWebGL = () => {
-            const container = document.getElementById('webgl-noise');
+        const startWebGL = () => {
+            const container = document.getElementById('webgl-grit');
             const scene = new THREE.Scene();
             const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
             
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, powerPreference: "high-performance" });
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Optimization
+            renderer.setPixelRatio(Math.min(window['dev\x69ceP\x69xelRatio'], 1.5));
             container.appendChild(renderer.domElement);
 
             const vertexShader = `
@@ -538,16 +533,14 @@
                 uniform float uScroll;
                 varying vec2 vUv;
 
-                // Hash function for grain
                 float hash(vec2 p) {
                     p = fract(p * vec2(123.34, 456.21));
                     p += dot(p, p + 45.32);
                     return fract(p.x * p.y);
                 }
 
-                // Simplex noise (simplified 2D)
                 vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
-                float snoise(vec2 v){
+                float sgrit(vec2 v){
                     const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
                     vec2 i  = floor(v + dot(v, C.yy) );
                     vec2 x0 = v -   i + dot(i, C.xx);
@@ -574,22 +567,19 @@
                 void main() {
                     vec2 uv = vUv;
                     
-                    // Base large structure (Concrete waves)
-                    float n1 = snoise(uv * 3.0 + vec2(0.0, uScroll * -0.5 + uTime * 0.05));
-                    float n2 = snoise(uv * 6.0 - vec2(uScroll * 0.2, uTime * 0.02));
+                    float n1 = sgrit(uv * 3.0 + vec2(0.0, uScroll * -0.5 + uTime * 0.05));
+                    float n2 = sgrit(uv * 6.0 - vec2(uScroll * 0.2, uTime * 0.02));
                     
-                    // High frequency grain
                     float grain = hash(uv * 500.0 + uTime);
                     
                     float pattern = (n1 * 0.6 + n2 * 0.4);
                     pattern = smoothstep(-0.5, 0.5, pattern);
                     
-                    // Construct brutalist concrete grit colors
-                    vec3 darkConcrete = vec3(0.06, 0.06, 0.06); // #111111 approximation
+                    vec3 darkConcrete = vec3(0.06, 0.06, 0.06);
                     vec3 lightConcrete = vec3(0.3, 0.3, 0.3);
                     
                     vec3 color = mix(darkConcrete, lightConcrete, pattern);
-                    color -= grain * 0.15; // Apply grit
+                    color -= grain * 0.15;
 
                     gl_FragColor = vec4(color, 1.0);
                 }
@@ -627,9 +617,8 @@
             requestAnimationFrame(animate);
         };
 
-        // 5. LOADING & ANIMATION ORCHESTRATION
         window.addEventListener('DOMContentLoaded', () => {
-            initWebGL();
+            startWebGL();
 
             const master = gsap.timeline();
 
@@ -642,7 +631,7 @@
                     document.getElementById('loader-percentage').innerText = Math.round(loadProgress.val).toString().padStart(3, '0') + '%';
                     document.getElementById('loader-fill').style.width = loadProgress.val + '%';
                 },
-                onComplete: () => {
+                ["onCompl\x65te"]: () => {
                     master.to('#loader', {
                         yPercent: -100,
                         duration: 1.0,
@@ -666,7 +655,6 @@
                 }
             });
 
-            // ScrollTriggers
             gsap.utils.toArray('section').forEach((sec, i) => {
                 if(i === 0) return; 
                 
